@@ -1,7 +1,7 @@
 <template>
-    <button :style="{background: color}" class="btn">
+    <el-button :color="color" @click="$emit('btn-click')">
         {{ text }}
-    </button>
+    </el-button>
 </template>
 
 <script>
@@ -10,6 +10,6 @@ export default {
     props: {
         text: String,
         color: String,
-    }
+    },
 }
 </script>
