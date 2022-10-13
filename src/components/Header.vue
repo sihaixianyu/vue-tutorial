@@ -1,13 +1,13 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Button @btn-click="$emit('btn-click')" :text="showAddTask ? 'Close': 'AddTask'"
+        <Button v-show="homePage" @btn-click="$emit('btn-click')" :text="showAddTask ? 'Close': 'AddTask'"
             :color="showAddTask ? 'red': 'green'"></Button>
     </header>
 </template>
 
 <script>
-import Button from './Button';
+import Button from './Button.vue';
 
 export default {
     name: 'Header',
@@ -17,6 +17,15 @@ export default {
     },
     components: {
         Button
+    },
+    computed: {
+        homePage() {
+            if (this.$route.path === '/') {
+                return true
+            } else {
+                return false
+            }
+        }
     }
 }
 </script>
